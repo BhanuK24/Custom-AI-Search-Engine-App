@@ -2,13 +2,18 @@ import os
 from dotenv import load_dotenv
 from exa_py import Exa
 import streamlit as st
-
-# Load environment variables from .env
+# Load environment variables from .env file
 load_dotenv()
-EXA_API_KEY = os.getenv("EXA_API_KEY")
 
-# Initialize Exa
+# Get API key from Streamlit Secrets / environment
+EXA_API_KEY = os.environ.get("EXA_API_KEY")
+
+if not EXA_API_KEY:
+    st.error("API key not found. Please set EXA_API_KEY in Streamlit Secrets.")
+    st.stop()
+
 exa = Exa(EXA_API_KEY)
+
 
 
 # Popular sites mapping
