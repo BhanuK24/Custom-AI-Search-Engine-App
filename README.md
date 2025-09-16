@@ -1,7 +1,8 @@
-# 🌐 Custom Exa Search Engine
+# 🌐 Custom Exa AI Search Engine
 
-A custom search engine built in Python using the [Exa API](https://exa.com).  
-This project provides an interactive web interface with [Streamlit](https://streamlit.io/), allowing users to search keywords across the web, optionally filtering results by popular website domains.
+A custom AI-powered search engine built in Python using the [Exa API](https://exa.com).  
+This project provides an interactive web interface with [Streamlit](https://streamlit.io/), allowing users to perform intelligent keyword searches across the web, optionally filtering results by popular website domains.
+
 
 ---
 
