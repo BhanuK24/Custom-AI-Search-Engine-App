@@ -92,7 +92,7 @@ if st.button("Search") and query:
     # Prepare search
     search_args = {
         "query": query,
-        "num_results": 5,
+        "num_results": 10,
         "type": "keyword"
     }
     if include_domains:
