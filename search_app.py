@@ -65,8 +65,8 @@ popular_sites = {
 # -----------------------
 # STREAMLIT UI
 # -----------------------
-st.set_page_config(page_title="Exa Search Engine", layout="centered")
-st.title("🌐 Custom Exa Search Engine")
+st.set_page_config(page_title="Exa AI Search Engine", layout="centered")
+st.title("🌐 Custom AI Search Engine")
 st.write("Search any query and optionally filter by popular sites!")
 
 # Query input
