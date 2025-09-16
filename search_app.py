@@ -98,7 +98,7 @@ if st.button("Search") and query:
     search_args = {
         "query": query,
         "num_results": 10,
-        "type": "keyword"
+        "type": "neural"
     }
     if include_domains:
         search_args["include_domains"] = include_domains
@@ -106,10 +106,28 @@ if st.button("Search") and query:
     # Perform search
     response = exa.search(**search_args)
 
-    # Display results
-    st.subheader("Results:")
-    if response.results:
-        for result in response.results:
+    urls = [result.url for result in response.results]
+    if urls:
+        contents = exa.get_contents(
+            urls=urls,
+            highlights={
+                "query": "Main highlights",
+                "num_sentences": 3
+            },
+            text=False,
+            livecrawl="fallback"
+        )
+
+        # Display results
+        st.subheader("Results with Highlights:")
+        for result in contents.results:
             st.markdown(f"- [{result.title}]({result.url})")
+            if hasattr(result, "highlights") and result.highlights:
+                st.markdown("**Highlights:**")
+                for h in result.highlights:
+                    st.markdown(f"- {h}")
+            else:
+                st.write("_No highlights available_")
+            st.write("---")
     else:
         st.write("No results found. Try a different query.")
